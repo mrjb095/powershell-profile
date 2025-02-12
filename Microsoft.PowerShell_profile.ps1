@@ -7,7 +7,7 @@ $debug = $false
 $timeFilePath = [Environment]::GetFolderPath("MyDocuments") + "\PowerShell\LastExecutionTime.txt"
 
 # Define the update interval in days, set to -1 to always check
-$updateInterval = 30
+$updateInterval = 7
 
 if ($debug) {
     Write-Host "#######################################" -ForegroundColor Red
