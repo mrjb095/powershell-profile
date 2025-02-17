@@ -169,6 +169,32 @@ function Test-CommandExists {
     return $exists
 }
 
+# Compile C programs using TDM-GCC
+function Compile {
+    param(
+        [Parameter(Mandatory=$true)][string]$file,
+        [string]$output_directory
+    )
+    $file = $file.ToString()
+    $file_name = $file.split("\")[-1].replace(".c","")
+    $file_path = $file.split($file_name)[0]
+
+    if (-not $output_directory){
+        $output_directory = $file_path + "Output\"
+    }
+    else {
+        $output_directory = $output_directory + "\"
+    }
+
+    if (-not (Test-Path $output_directory)){
+        mkdir $output_directory
+    }
+
+    $output_directory = $output_directory + $file_name + ".exe"
+    
+    gcc.exe -Wall -Wextra -g3 $file -o $output_directory
+}
+
 # Editor Configuration
 $EDITOR = if (Test-CommandExists nvim) { 'nvim' }
           elseif (Test-CommandExists pvim) { 'pvim' }
@@ -282,6 +308,7 @@ function unzip ($file) {
     $fullFile = Get-ChildItem -Path $pwd -Filter $file | ForEach-Object { $_.FullName }
     Expand-Archive -Path $fullFile -DestinationPath $pwd
 }
+
 function hb {
     if ($args.Length -eq 0) {
         Write-Error "No file path specified."
