@@ -7,7 +7,7 @@ $debug = $false
 $timeFilePath = [Environment]::GetFolderPath("MyDocuments") + "\PowerShell\LastExecutionTime.txt"
 
 # Define the update interval in days, set to -1 to always check
-$updateInterval = 7
+$updateInterval = -1
 
 if ($debug) {
     Write-Host "#######################################" -ForegroundColor Red
@@ -552,9 +552,9 @@ function Get-Theme {
             Invoke-Expression $existingTheme
             return
         }
-        oh-my-posh init pwsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/hul10.omp.json | Invoke-Expression
+        oh-my-posh init pwsh --config https://github.com/mrjb095/powershell-profile/raw/main/themes/hul10.json | Invoke-Expression
     } else {
-        oh-my-posh init pwsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/hul10.omp.json | Invoke-Expression
+        oh-my-posh init pwsh --config https://github.com/mrjb095/powershell-profile/raw/main/themes/hul10.json | Invoke-Expression
     }
 }
 

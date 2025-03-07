@@ -1,5 +1,7 @@
 This is a fork from the ChrisTitusTech/powershell-profile repository
 
+Theme hul10 based on https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/hul10.omp.json
+
 # 🎨 PowerShell Profile (Pretty PowerShell)
 
 A stylish and functional PowerShell profile that looks and feels almost as good as a Linux terminal.
