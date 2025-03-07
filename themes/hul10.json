@@ -124,7 +124,7 @@
         ]
       }
     ],
-    "console_title_template": "{{if .Root}}[ADMIN] - {{end}}{{.Shell}}",
+    "console_title_template": "{{if .Root}}[ADMIN] - {{end}}PowerShell",
     "final_space": true,
     "version": 3
   }
